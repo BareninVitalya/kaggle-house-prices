@@ -3,10 +3,11 @@ __pycache__/
 .ipynb_checkpoints/
 .idea/
 
-data/raw/*
+#data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
+catboost_info/
 
 models/*
 !models/.gitkeep

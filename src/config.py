@@ -169,6 +169,12 @@ DEFAULT_LOGREG_PARAMS = {
     "random_state": SEED,
 }
 
+DEFAULT_RIDGE_PARAMS = {
+    'alpha': 15.9,
+    'fit_intercept': True,
+    "random_state": SEED,
+}
+
 DEFAULT_KNN_PARAMS = {
     "n_neighbors": 7,
     "weights": "uniform",
@@ -212,14 +218,18 @@ DEFAULT_GB_PARAMS = {
 }
 
 DEFAULT_CATBOOST_PARAMS = {
-    "iterations": 500,
-    "learning_rate": 0.05,
-    "depth": 5,
+    "iterations": 3000,
+    "learning_rate": 0.01,
+    "depth": 6,
     "loss_function": "RMSE",
     "eval_metric": "RMSE",
-    "random_seed": SEED,
-    "verbose": False,
-    "allow_writing_files": False,
+    'random_strength': 1.0,
+    'bagging_temperature': 0.5,
+    'border_count': 128,
+    'boosting_type': "Plain",
+    'bootstrap_type': "Bayesian",
+    "random_seed":    SEED,
+    'verbose':  False
 }
 
 
@@ -274,8 +284,8 @@ OPENFE_PARAMS = {
 
 DEFAULT_DNN_PARAMS = {
     # Архитектура
-    "hidden_dims":      [16],   # список размеров скрытых слоёв
-    "activation":       "relu",     # relu | leakyrelu | gelu | tanh | selu | elu
+    "hidden_dims":      [128, ],   # список размеров скрытых слоёв
+    "activation":       "sigmoid",     # relu | leakyrelu | gelu | tanh | selu | elu
     "dropout":          0.0,        # 0.0 = Dropout выключен
     "batchnorm":        False,      # BatchNorm1d после каждого скрытого слоя
 
@@ -284,7 +294,7 @@ DEFAULT_DNN_PARAMS = {
     "lr":               1e-3,
     "weight_decay":     0.0,        # L2-регуляризация для AdamW/SGD
     "batch_size":       32,
-    "epochs":           50,
+    "epochs":           60,
 
     # Scheduler (None = не использовать)
     "scheduler":        None,       # None | "cosine" | "step"

@@ -31,6 +31,7 @@ from .config import (
     DEFAULT_XGB_PARAMS,
     DEFAULT_DNN_PARAMS,
     DEFAULT_RF_REG_PARAMS,
+    DEFAULT_RIDGE_PARAMS,
     MODELS_DIR
 )
 
@@ -208,7 +209,7 @@ def build_ridge_model(X: pd.DataFrame, params: Optional[Dict] = None, transform_
         )
         pre = build_preprocessor()
 
-    base_params = {}
+    base_params = DEFAULT_RIDGE_PARAMS.copy()
 
     if params:
         base_params.update(params)

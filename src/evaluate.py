@@ -71,10 +71,8 @@ def cv_scores_with_fit_params(
     y: pd.Series,
     scoring: Callable = root_mean_squared_error,
     metric_name: str = "RMSE",
-    factory_needs_X: bool = False,
     factory_kwargs: Optional[Dict] = None,
     return_train_score=False,
-    verbose: bool = True,
     transform_off=True,
     **fit_params,
 ) -> Tuple[float, float, np.ndarray, Union[float, np.ndarray]]:
